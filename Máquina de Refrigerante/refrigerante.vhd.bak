@@ -1,0 +1,97 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity refrigerante is
+    port (
+        clock    : in  std_logic;
+        reset    : in  std_logic;
+        botao    : in  std_logic;
+        m10_in   : in  std_logic;
+        m25_in   : in  std_logic;
+        m50_in   : in  std_logic;
+        m100_in  : in  std_logic;
+        som0     : out std_logic;
+        som1     : out std_logic;
+        m10_out  : out std_logic;
+        m25_out  : out std_logic;
+        m50_out  : out std_logic;
+        m100_out : out std_logic;
+        refri    : out std_logic
+    );
+end refrigerante;
+
+architecture maquina_refri of refrigerante is
+    type tipos_estado is (receber, devolver, entregar, esperar);
+    signal estado   : tipos_estado           := receber;
+    signal total    : integer range 0 to 200 := 0;
+    signal moed_dev : integer range 0 to 100 := 0;
+    signal comp_som : bit_vector(1 downto 0) := (others => '0');
+begin
+    contagem: process(clock, reset)
+    begin
+        if reset = '1' then
+            total <= 0;
+            moed_dev <= 0;
+        elsif rising_edge(clock) then
+            moed_dev <= 0;
+            
+            if estado = receber then
+                if botao = '1' AND comp_som = "10" then
+                    total <= total - 100;
+                else
+                    if m10_in = '1' then
+                        total <= total + 10;
+                    elsif m25_in = '1' then
+                        total <= total + 25;
+                    elsif m50_in = '1' then
+                        total <= total + 50;
+                    elsif m100_in = '1' then
+                        total <= total + 100;
+                    end if;
+                end if;
+            elsif estado = devolver then
+                if total >= 25 AND total mod 25 = 0 then
+                    moed_dev <= 25;
+                    total <= total - 25;
+                elsif total >= 50 AND total mod 25 = 0 then
+                    moed_dev <= 50;
+                    total <= total - 50;
+                elsif total >= 100 AND total mod 25 = 0 then
+                    moed_dev <= 100;
+                    total <= total - 100;
+                end if;
+            end if;
+            
+            if total >= 100 then
+                comp_som <= "11";
+            elsif total >= 50 then
+                comp_som <= "10";
+            elsif total >= 25 then
+                comp_som <= "01";
+            else
+                comp_som <= "00";
+            end if;
+        end if;
+    end process contagem;
+    
+    with estado select
+        refri <= '1' when entregar,
+                 '0' when others;
+                 
+    m10_out <= '1' when moed_dev = 10 else '0';
+    m25_out <= '1' when moed_dev = 25 else '0';
+    m50_out <= '1' when moed_dev = 50 else '0';
+    m100_out <= '1' when moed_dev = 100 else '0';
+    
+    som0 <= '1' when estado = devolver else '0';
+    som1 <= '1' when estado = entregar else '0';
+    
+    estado <= receber when (estado = receber and (m10_in = '1' or m25_in = '1' or m50_in = '1' or m100_in = '1')) else
+              devolver when (estado = receber and total > 100) else
+              entregar when (estado = receber and botao = '1' and comp_som = "10") else
+              receber when (estado = receber and botao = '1' and comp_som /= "10") else
+              devolver when (estado = esperar and total > 100) else
+              esperar;
+                 
+end maquina_refri;
