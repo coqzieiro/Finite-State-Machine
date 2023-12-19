@@ -1,0 +1,137 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "liberado",
+					"strict" : false
+				},
+				{
+					"name" : "troco",
+					"strict" : false
+				},
+				{
+					"name" : "s0",
+					"strict" : false
+				},
+				{
+					"name" : "s1",
+					"strict" : false
+				},
+				{
+					"name" : "s2",
+					"strict" : false
+				},
+				{
+					"name" : "s3",
+					"strict" : false
+				},
+				{
+					"name" : "s4",
+					"strict" : false
+				},
+				{
+					"name" : "s5",
+					"strict" : false
+				},
+				{
+					"name" : "s6",
+					"strict" : false
+				},
+				{
+					"name" : "s00",
+					"strict" : false
+				},
+				{
+					"name" : "s11",
+					"strict" : false
+				},
+				{
+					"name" : "s22",
+					"strict" : false
+				},
+				{
+					"name" : "s33",
+					"strict" : false
+				},
+				{
+					"name" : "s44",
+					"strict" : false
+				},
+				{
+					"name" : "s55",
+					"strict" : false
+				},
+				{
+					"name" : "s66",
+					"strict" : false
+				},
+				{
+					"name" : "s000",
+					"strict" : false
+				},
+				{
+					"name" : "s111",
+					"strict" : false
+				},
+				{
+					"name" : "s222",
+					"strict" : false
+				},
+				{
+					"name" : "s333",
+					"strict" : false
+				},
+				{
+					"name" : "s444",
+					"strict" : false
+				},
+				{
+					"name" : "s555",
+					"strict" : false
+				},
+				{
+					"name" : "s666",
+					"strict" : false
+				},
+				{
+					"name" : "botao",
+					"strict" : false
+				},
+				{
+					"name" : "reset_refri",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "clk_fopga",
+					"strict" : false
+				},
+				{
+					"name" : "m100",
+					"strict" : false
+				},
+				{
+					"name" : "m50",
+					"strict" : false
+				},
+				{
+					"name" : "m25",
+					"strict" : false
+				},
+				{
+					"name" : "m10",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

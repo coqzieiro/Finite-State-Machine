@@ -1,0 +1,8 @@
+
+State Machine - |test|refrigerante:inst22|state
+Name state.RETURN_CHANGE state.DISPENSE_SODA state.CHECK_AMOUNT state.COLLECTING_COINS state.IDLE 
+state.IDLE 0 0 0 0 0 
+state.COLLECTING_COINS 0 0 0 1 1 
+state.CHECK_AMOUNT 0 0 1 0 1 
+state.DISPENSE_SODA 0 1 0 0 1 
+state.RETURN_CHANGE 1 0 0 0 1 
