@@ -32,3 +32,11 @@ A saída é 1 se o elevador está no andar desejado e 0 caso o contrário.
 
 A partir do diagrama de estados, podemos montar uma tabela de transição de estados:
 
+<p align="center">
+  <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/6f9701ea-c111-411e-8163-98e3921d384d"/> <br/>
+  Figura 2: Tabela de transição de estados.
+</p>
+
+#### 2.1.3 Código em VHDL
+
+Nesse sentido, implementou-se um código em VHDL para representar o funcionamento da máquina de estados do elevador:
