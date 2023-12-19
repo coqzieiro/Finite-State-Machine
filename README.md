@@ -13,3 +13,5 @@ O projeto do elevador foi implementado na placa FPGA DE0-CV Cyclone V, código: 
 #### 2.1 Elevador
 No caso do elevador, projetou-se uma FSM onde os estados representam o andar atual do elevador. As transições entre os estados podem ser acionadas por eventos como “andar requisitado”. As ações podem incluir “mover para cima”, “mover para baixo” ou “ficar parado”. 
 
+##### 2.1.1 Diagrama de estados
+
