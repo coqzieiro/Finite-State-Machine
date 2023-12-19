@@ -1,0 +1,69 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "a_atual[0]",
+					"strict" : false
+				},
+				{
+					"name" : "a_atual[1]",
+					"strict" : false
+				},
+				{
+					"name" : "a_atual[2]",
+					"strict" : false
+				},
+				{
+					"name" : "a_atual[3]",
+					"strict" : false
+				},
+				{
+					"name" : "subida",
+					"strict" : false
+				},
+				{
+					"name" : "descida",
+					"strict" : false
+				},
+				{
+					"name" : "aguardando",
+					"strict" : false
+				},
+				{
+					"name" : "reset_debouncer",
+					"strict" : false
+				},
+				{
+					"name" : "a_desejado[3]",
+					"strict" : false
+				},
+				{
+					"name" : "a_desejado[2]",
+					"strict" : false
+				},
+				{
+					"name" : "a_desejado[1]",
+					"strict" : false
+				},
+				{
+					"name" : "a_desejado[0]",
+					"strict" : false
+				},
+				{
+					"name" : "clk_btn",
+					"strict" : false
+				},
+				{
+					"name" : "reset_btn",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
