@@ -1,0 +1,293 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'reset'
+Slack : -7.887
+TNS   : -158.275
+
+Type  : Slow 1100mV 85C Model Setup 'clock'
+Slack : -7.651
+TNS   : -150.108
+
+Type  : Slow 1100mV 85C Model Setup 'reset_refri'
+Slack : -6.080
+TNS   : -69.332
+
+Type  : Slow 1100mV 85C Model Setup 'clk_fopga'
+Slack : -4.064
+TNS   : -57.264
+
+Type  : Slow 1100mV 85C Model Hold 'clk_fopga'
+Slack : 0.428
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'clock'
+Slack : 0.996
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'reset_refri'
+Slack : 1.054
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'reset'
+Slack : 1.168
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'reset'
+Slack : -3.981
+TNS   : -59.185
+
+Type  : Slow 1100mV 85C Model Recovery 'clock'
+Slack : -3.917
+TNS   : -58.225
+
+Type  : Slow 1100mV 85C Model Recovery 'clk_fopga'
+Slack : -2.506
+TNS   : -45.026
+
+Type  : Slow 1100mV 85C Model Removal 'clk_fopga'
+Slack : 1.179
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'clock'
+Slack : 1.483
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'reset'
+Slack : 1.655
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'reset'
+Slack : -0.538
+TNS   : -20.536
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clock'
+Slack : -0.538
+TNS   : -20.339
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk_fopga'
+Slack : -0.538
+TNS   : -14.035
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'reset_refri'
+Slack : 0.134
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'reset'
+Slack : -7.845
+TNS   : -155.574
+
+Type  : Slow 1100mV 0C Model Setup 'clock'
+Slack : -7.558
+TNS   : -146.488
+
+Type  : Slow 1100mV 0C Model Setup 'reset_refri'
+Slack : -6.026
+TNS   : -67.925
+
+Type  : Slow 1100mV 0C Model Setup 'clk_fopga'
+Slack : -3.897
+TNS   : -55.815
+
+Type  : Slow 1100mV 0C Model Hold 'clk_fopga'
+Slack : 0.437
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'reset_refri'
+Slack : 0.897
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'clock'
+Slack : 0.961
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'reset'
+Slack : 1.152
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'reset'
+Slack : -3.928
+TNS   : -58.339
+
+Type  : Slow 1100mV 0C Model Recovery 'clock'
+Slack : -3.853
+TNS   : -57.214
+
+Type  : Slow 1100mV 0C Model Recovery 'clk_fopga'
+Slack : -2.256
+TNS   : -40.543
+
+Type  : Slow 1100mV 0C Model Removal 'clk_fopga'
+Slack : 0.845
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'clock'
+Slack : 1.261
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'reset'
+Slack : 1.473
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'reset'
+Slack : -0.538
+TNS   : -20.622
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clock'
+Slack : -0.538
+TNS   : -20.577
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk_fopga'
+Slack : -0.538
+TNS   : -14.088
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'reset_refri'
+Slack : 0.142
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'reset'
+Slack : -3.781
+TNS   : -74.771
+
+Type  : Fast 1100mV 85C Model Setup 'clock'
+Slack : -3.679
+TNS   : -71.330
+
+Type  : Fast 1100mV 85C Model Setup 'reset_refri'
+Slack : -2.483
+TNS   : -27.285
+
+Type  : Fast 1100mV 85C Model Setup 'clk_fopga'
+Slack : -2.187
+TNS   : -29.784
+
+Type  : Fast 1100mV 85C Model Hold 'clk_fopga'
+Slack : 0.090
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'clock'
+Slack : 0.486
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'reset'
+Slack : 0.578
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'reset_refri'
+Slack : 0.596
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'reset'
+Slack : -2.746
+TNS   : -40.872
+
+Type  : Fast 1100mV 85C Model Recovery 'clock'
+Slack : -2.706
+TNS   : -40.272
+
+Type  : Fast 1100mV 85C Model Recovery 'clk_fopga'
+Slack : -1.515
+TNS   : -27.207
+
+Type  : Fast 1100mV 85C Model Removal 'clk_fopga'
+Slack : 0.362
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'clock'
+Slack : 0.799
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'reset'
+Slack : 0.861
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clock'
+Slack : -0.467
+TNS   : -9.691
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'reset'
+Slack : -0.451
+TNS   : -9.010
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk_fopga'
+Slack : -0.098
+TNS   : -1.755
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'reset_refri'
+Slack : -0.089
+TNS   : -0.364
+
+Type  : Fast 1100mV 0C Model Setup 'reset'
+Slack : -3.351
+TNS   : -66.195
+
+Type  : Fast 1100mV 0C Model Setup 'clock'
+Slack : -3.240
+TNS   : -62.843
+
+Type  : Fast 1100mV 0C Model Setup 'reset_refri'
+Slack : -2.152
+TNS   : -24.139
+
+Type  : Fast 1100mV 0C Model Setup 'clk_fopga'
+Slack : -1.968
+TNS   : -26.502
+
+Type  : Fast 1100mV 0C Model Hold 'clk_fopga'
+Slack : 0.068
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'clock'
+Slack : 0.364
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'reset'
+Slack : 0.427
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'reset_refri'
+Slack : 0.496
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'reset'
+Slack : -2.410
+TNS   : -35.874
+
+Type  : Fast 1100mV 0C Model Recovery 'clock'
+Slack : -2.369
+TNS   : -35.259
+
+Type  : Fast 1100mV 0C Model Recovery 'clk_fopga'
+Slack : -1.279
+TNS   : -22.969
+
+Type  : Fast 1100mV 0C Model Removal 'clk_fopga'
+Slack : 0.196
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'clock'
+Slack : 0.608
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'reset'
+Slack : 0.678
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clock'
+Slack : -0.434
+TNS   : -8.998
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'reset'
+Slack : -0.424
+TNS   : -8.573
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk_fopga'
+Slack : -0.100
+TNS   : -1.776
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'reset_refri'
+Slack : -0.067
+TNS   : -0.351
+
+------------------------------------------------------------
