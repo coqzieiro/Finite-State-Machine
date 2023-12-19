@@ -209,3 +209,9 @@ Por fim, temos o circuito esquemático:
   <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/ff5e399f-d9c3-4e0d-8672-7e99abc12292"/> <br/>
   Figura 8: Circuito esquemático.
 </p>
+
+### 3. Conclusão
+
+Com a conclusão bem-sucedida do projeto, tornou-se evidente a relevância do processo de modelagem de problemas por meio dos conceitos de máquinas de estados finitos. A execução desses projetos, especificamente do elevador, proporcionou uma compreensão mais profunda das complexidades envolvidas na aplicação prática desses conceitos.
+
+Além disso, a imersão nos projetos permitiu a exploração e aprimoramento do conhecimento em linguagens de hardware, como o VHDL. Essa experiência prática não apenas consolidou o entendimento teórico adquirido, mas também proporcionou insights valiosos sobre as nuances da implementação de soluções em ambientes do mundo real.
