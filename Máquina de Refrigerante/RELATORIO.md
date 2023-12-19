@@ -166,3 +166,35 @@ end Elevator;
 ```
 #### 2.1.4 Circuito esquemático:
 
+De tal forma, após implementar o código em VHDL, exportou-se a lógica do elevador em formato de bloco e usou-se um circuito auxiliar para representar o funcionamento correto do elevador:
+
+O display de sete segmentos foi utilizado para representar os andares do elevador:
+
+<p align="center">
+  <img src=" "/> <br/>
+  Figura 3: Display de sete segmentos.
+</p>
+
+
+<p align="center">
+  <img src=" "/> <br/>
+  Figura 4: Switchs que representam os andares (0-15).
+</p>
+
+
+<p align="center">
+  <img src=" "/> <br/>
+  Figura 5: Debouncer (filtro para o clock).
+</p>
+
+
+<p align="center">
+  <img src=" "/> <br/>
+  Figura 6: Bloco do elevador.
+</p>
+
+
+<p align="center">
+  <img src=" "/> <br/>
+  Figura 7: Lógica auxiliar para os LEDs.
+</p>
