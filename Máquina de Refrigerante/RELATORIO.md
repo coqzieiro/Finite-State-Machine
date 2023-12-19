@@ -175,29 +175,35 @@ O display de sete segmentos foi utilizado para representar os andares do elevado
   Figura 3: Display de sete segmentos.
 </p>
 
+Os 4 switchs representam o comando para acessar os andares do elevador:
 
 <p align="center">
   <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/759fc274-e09c-4fe2-a754-e76dacdbd113"/> <br/>
   Figura 4: Switchs que representam os andares (0-15).
 </p>
 
+O debouncer é o componente responsável por filtrar o sinal do clock:
 
 <p align="center">
   <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/dce19c04-6c08-48dd-8885-d3bd0b6700a4"/> <br/>
   Figura 5: Debouncer (filtro para o clock).
 </p>
 
+O bloco do elevador foi compilado a partir do código em VHDL:
 
 <p align="center">
   <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/80366e64-c242-4210-9e81-f0c39944cf8e"/> <br/>
   Figura 6: Bloco do elevador.
 </p>
 
+Foi necessário implementar uma lógica auxiliar para o funcionamento correto dos LED's:
 
 <p align="center">
   <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/eb26a54c-b957-439a-a4e8-74b114522721"/> <br/>
   Figura 7: Lógica auxiliar para os LEDs.
 </p>
+
+Por fim, temos o circuito esquemático:
 
 <p align="center">
   <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/ff5e399f-d9c3-4e0d-8672-7e99abc12292"/> <br/>
