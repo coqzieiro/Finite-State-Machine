@@ -37,6 +37,9 @@ A partir do diagrama de estados, podemos montar uma tabela de transição de est
   Figura 2: Tabela de transição de estados.
 </p>
 
-#### 2.1.3 Código em VHDL
+#### 2.1.3 Circuito esquemático:
 
-Nesse sentido, implementou-se um código em VHDL para representar o funcionamento da máquina de estados do elevador:
+De tal forma, após implementar o código em VHDL, exportou-se a lógica do elevador em formato de bloco e usou-se um circuito auxiliar para representar o funcionamento correto do elevador:
+
+O display de sete segmentos foi utilizado para representar os andares do elevador:
+
