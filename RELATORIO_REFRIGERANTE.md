@@ -9,24 +9,32 @@ Um estado armazena informações sobre o passado, isto é, ele reflete as mudan�
 O projeto da máquina de refrigerante foi implementada na placa FPGA DE0-CV Cyclone V, código: 5CEBA4F23C7
 
 #### 2.1 Refrigerante
-No caso da máquina de refrigerante, projetou-se uma FSM onde os estados representam o andar atual do elevador. As transições entre os estados podem ser acionadas por eventos como “andar requisitado”. As ações podem incluir “mover para cima”, “mover para baixo” ou “ficar parado”. 
+No caso da máquina de refrigerante, os estados representam o valor total inserido na máquina. As transições podem ser acionadas pela inserção de moedas ou pelo pressionamento do botão de liberação. As ações incluem receber as moedas (r), esperar pelo botão de retirada (e) e devolver o dinheiro (d).
+
+As entradas da máquina estão relacionadas a diferença entre a soma das moedas inseridas e o valor do refrigerante, além do botão para retirá-lo. Logo:
+
+(00x) : soma das moedas = 0
+
+(01x) : 0 < soma das moedas < 1
+
+(10x) : soma das moedas = 1
+
+(11x) : soma das moedas > 1
+
+(xx0) : botão não pressionado
+
+(xx1) : botão pressionado
+
+Nesse sentido, a saída é 1 quando a transição gera a entrega bem sucedida do refrigerante e 0 em todas as outras situações.
 
 #### 2.1.1 Diagrama de estados
 
+Desse modo, montou-se um diagrama de estados para representar a lógica do funcionamento da máquina de refrigerante.
+
 <p align="center">
-  <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/d0d87a87-d801-402b-bc3f-9496fddd2d7b"/> <br/>
-  Figura 1: Diagrama de estados do projeto do elevador.
+  <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/d57ea80a-e214-4f2a-a12b-34063a9596fb"/> <br/>
+  Figura 1: Diagrama de estados do projeto do refrigerante.
 </p>
-
-A máquina de estados do elevador funciona por meio de três estados: parado (p), subindo (s) e descendo (d). As entradas são relacionadas à posição relativa entre o andar solicitado e o andar atual, logo, temos a seguinte codificação:
-
-(00)	: andar solicitado > andar atual
-
-(01) : andar solicitado < andar atual
-
-(10): andar solicitado = andar atual
-
-A saída é 1 se o elevador está no andar desejado e 0 caso o contrário.
 
 #### 2.1.2 Tabela de transição
 
