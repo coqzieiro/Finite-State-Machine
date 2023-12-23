@@ -150,20 +150,20 @@ end behavior;
 ```
 #### 2.1.4 Circuito esquemático:
 
-De tal forma, após implementar o código em VHDL, exportou-se a lógica do elevador em formato de bloco e usou-se um circuito auxiliar para representar o funcionamento correto do elevador:
+Analogamente, após implementar o código em VHDL, exportou-se a lógica da máquina de refrigerante em formato de bloco e usou-se um circuito auxiliar para representar o seu funcionamento correto:
 
-O display de sete segmentos foi utilizado para representar os andares do elevador:
+O display de sete segmentos auxilia na representação das moedas inseridas na máquina de refrigerante:
 
 <p align="center">
-  <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/5ef7909b-ec85-4c69-8a29-c921614f5dcd"/> <br/>
+  <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/c08b4c1b-1efb-49cd-8393-9b0dc60eecb9"/> <br/>
   Figura 3: Display de sete segmentos.
 </p>
 
-Os 4 switchs representam o comando para acessar os andares do elevador:
+Os 4 switchs representam as moedas de 10, 25, 50 e 100:
 
 <p align="center">
-  <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/759fc274-e09c-4fe2-a754-e76dacdbd113"/> <br/>
-  Figura 4: Switchs que representam os andares (0-15).
+  <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/ac696fd2-506b-4275-9a3f-ebc05ac42b5c"/> <br/>
+  Figura 4: Switchs.
 </p>
 
 O debouncer é o componente responsável por filtrar o sinal do clock:
@@ -176,26 +176,19 @@ O debouncer é o componente responsável por filtrar o sinal do clock:
 O bloco do elevador foi compilado a partir do código em VHDL:
 
 <p align="center">
-  <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/80366e64-c242-4210-9e81-f0c39944cf8e"/> <br/>
-  Figura 6: Bloco do elevador.
-</p>
-
-Foi necessário implementar uma lógica auxiliar para o funcionamento correto dos LED's:
-
-<p align="center">
-  <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/eb26a54c-b957-439a-a4e8-74b114522721"/> <br/>
-  Figura 7: Lógica auxiliar para os LEDs.
+  <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/cdeffa8d-9f44-45a1-be42-34ec0edf7b7c"/> <br/>
+  Figura 6: Bloco da máquina de refrigerante.
 </p>
 
 Por fim, temos o circuito esquemático:
 
 <p align="center">
-  <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/ff5e399f-d9c3-4e0d-8672-7e99abc12292"/> <br/>
+  <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/947c7279-c651-466c-bfe0-082f0b8c94c6"/> <br/>
   Figura 8: Circuito esquemático.
 </p>
 
 ### 3. Conclusão
 
-Com a conclusão bem-sucedida do projeto, tornou-se evidente a relevância do processo de modelagem de problemas por meio dos conceitos de máquinas de estados finitos. A execução desses projetos, especificamente do elevador, proporcionou uma compreensão mais profunda das complexidades envolvidas na aplicação prática desses conceitos.
+Com o término exitoso do projeto, ficou claro o quão importante é a modelagem de problemas utilizando os princípios de máquinas de estados finitos. A realização desses projetos, em particular o do refrigerante, permitiu um entendimento mais aprofundado das complexidades que surgem ao aplicar esses conceitos na prática.
 
-Além disso, a imersão nos projetos permitiu a exploração e aprimoramento do conhecimento em linguagens de hardware, como o VHDL. Essa experiência prática não apenas consolidou o entendimento teórico adquirido, mas também proporcionou insights valiosos sobre as nuances da implementação de soluções em ambientes do mundo real.
+Ademais, a participação ativa nos projetos possibilitou a exploração e o aperfeiçoamento do conhecimento em linguagens de hardware, como o VHDL. Essa vivência prática não só reforçou o aprendizado teórico, mas também ofereceu percepções importantes sobre as sutilezas da implementação de soluções em cenários reais.
