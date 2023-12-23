@@ -38,10 +38,10 @@ Desse modo, montou-se um diagrama de estados para representar a lógica do funci
 
 #### 2.1.2 Tabela de transição
 
-A partir do diagrama de estados, podemos montar uma tabela de transição de estados:
+De tal modo, elaborou-se uma tabela para representar as transições de estados:
 
 <p align="center">
-  <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/6f9701ea-c111-411e-8163-98e3921d384d"/> <br/>
+  <img src="https://github.com/coqzieiro/Finite-State-Machine/assets/122469265/3d54b1a9-bb84-41e0-a0f9-bebf3d8cfbb9"/> <br/>
   Figura 2: Tabela de transição de estados.
 </p>
 
@@ -50,127 +50,103 @@ A partir do diagrama de estados, podemos montar uma tabela de transição de est
 Nesse sentido, implementou-se um código em VHDL para representar o funcionamento da máquina de estados do elevador:
 
 ```cpp
--- Date: December 10, 2023
--- Project: elevador
--- Page 1 of 2
--- Revision: elevador
-
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
-entity elevador is
-    Port (
-        clk, clk_btn, reset_btn, reset_debouncer: in STD_LOGIC;
-        a_desejado: in STD_LOGIC_VECTOR(3 downto 0); -- 4 pinos para o andar solicitado
-        a_atual: out STD_LOGIC_VECTOR(3 downto 0); -- 4 bits para o andar atual
-        subida, descida, aguardando: out STD_LOGIC -- LEDs para os estados
+entity refrigerante is
+    port (
+        clock       : in std_logic;
+        reset       : in std_logic;
+        switch_10   : in std_logic;
+        switch_25   : in std_logic;
+        switch_50   : in std_logic;
+        switch_100  : in std_logic;
+        button      : in std_logic;
+        release_led : out std_logic; -- LED indicando a liberação do refrigerante
+        return_led  : out std_logic; -- LED indicando o retorno das moedas
+        leds        : out std_logic_vector(11 downto 0)
     );
-end elevador;
+end refrigerante;
 
-architecture Elevator of elevador is
-    type STATE_TYPE is (parado, subindo, descendo);
-    signal estado, prox_estado: STATE_TYPE;
-    signal a_interno: STD_LOGIC_VECTOR(3 downto 0) := "0000"; -- Inicia no andar térreo
-
-    -- Declaração do componente debouncer
-    component debouncer
-        port (
-            clk_fpga, rst_debouncer, input_key: in STD_LOGIC;
-            out_key: out STD_LOGIC
-        );
-    end component;
-
-    -- Sinal para conectar ao debouncer
-    signal db_a_desejado: STD_LOGIC_VECTOR(3 downto 0);
-    signal out_clk_db, out_reset_db: STD_LOGIC;
+architecture behavior of refrigerante is
+    signal accumulator  : unsigned(11 downto 0) := (others => '0');
+    signal value_added   : unsigned(11 downto 0) := (others => '0');
+    signal first_clock   : boolean := true;
 
 begin
-
-    -- Debouncer
-    D1: debouncer PORT MAP (clk_fpga => clk, rst_debouncer => reset_debouncer, input_key => a_desejado(3), out_key => db_a_desejado(3));
-    D2: debouncer PORT MAP (clk_fpga => clk, rst_debouncer => reset_debouncer, input_key => a_desejado(2), out_key => db_a_desejado(2));
-    D3: debouncer PORT MAP (clk_fpga => clk, rst_debouncer => reset_debouncer, input_key => a_desejado(1), out_key => db_a_desejado(1));
-    D4: debouncer PORT MAP (clk_fpga => clk, rst_debouncer => reset_debouncer, input_key => a_desejado(0), out_key => db_a_desejado(0));
-    D5: debouncer PORT MAP (clk_fpga => clk, rst_debouncer => reset_debouncer, input_key => clk_btn, out_key => out_clk_db);
-    D6: debouncer PORT MAP (clk_fpga => clk, rst_debouncer => reset_debouncer, input_key => reset_btn, out_key => out_reset_db);
-
-    -- Transição de estado e Atualização de andar
-    process(out_clk_db, out_reset_db)
+    process (clock, reset)
     begin
-        if out_reset_db = '1' then
-            estado <= parado;
-            a_interno <= "0000"; -- Reset para o andar térreo
-        elsif rising_edge(out_clk_db) then
-            -- Atualize o estado
-            estado <= prox_estado;
+        if reset = '1' then
+            if first_clock = false then
+                accumulator <= (others => '0');
+            end if;
 
-            -- Atualize a_interno com base no estado e Verificações adicionais
-            case estado is
-                when subindo =>
-                    if a_interno < db_a_desejado and a_interno < "1111" then
-                        a_interno <= a_interno + 1;
+            release_led <= '0';
+            return_led  <= '0';
+            first_clock <= true; -- Sinaliza que o primeiro clock foi recebido
+        elsif rising_edge(clock) then
+            -- Remove lixo de memória após o primeiro clock
+            if first_clock then
+                first_clock <= false; -- Primeiro clock foi processado
+            else
+                -- Atualiza o acumulador com base nos switches ativos
+                value_added <= (others => '0');
+
+                if switch_10 = '1' then
+                    value_added(3 downto 0) <= "1010"; -- 10 em binário
+                end if;
+
+                if switch_25 = '1' then
+                    value_added(4 downto 0) <= "11001"; -- 25 em binário
+                end if;
+
+                if switch_50 = '1' then
+                    value_added(5 downto 0) <= "110010"; -- 50 em binário
+                end if;
+
+                if switch_100 = '1' then
+                    value_added(9 downto 0) <= "0001100100"; -- 100 em binário
+                end if;
+
+                accumulator <= accumulator + value_added;
+
+                -- Verifica se o valor acumulado ultrapassou 100 e o botão está em 0
+                if accumulator > to_unsigned(100, 12) and button = '0' then
+                    release_led <= '0'; -- Acende o LED de liberação do refrigerante
+                    return_led  <= '1';
+
+                    -- Reseta o estado
+                    accumulator <= (others => '0');
+                    value_added <= (others => '0');
+                    first_clock <= true; -- Sinaliza que o primeiro clock foi recebido
+                else
+                    release_led <= '0'; -- Mantém o LED de liberação apagado
+
+                    -- Manipula o pressionamento do botão
+                    if button = '1' then
+                        if accumulator = to_unsigned(100, 12) then
+                            release_led <= '1'; -- Usuário inseriu o valor correto (1 real)
+                            return_led  <= '0';
+                        else
+                            return_led  <= '1'; -- Usuário inseriu menos que 1 real, retorna todas as moedas
+                            release_led <= '0';
+                        end if;
+
+                        -- Reseta o estado
+                        accumulator <= (others => '0');
+                        value_added <= (others => '0');
+                        first_clock <= true; -- Sinaliza que o primeiro clock foi recebido
                     end if;
-                when descendo =>
-                    if a_interno > db_a_desejado and a_interno > "0000" then
-                        a_interno <= a_interno - 1;
-                    end if;
-                when others =>
-                    null;
-            end case;
+                end if;
+            end if;
         end if;
     end process;
 
-    -- Saída
-    process(estado)
-    begin
-        case estado is
-            when parado =>
-                subida <= '0';
-                descida <= '0';
-                aguardando <= '1';
-            when subindo =>
-                subida <= '1';
-                descida <= '0';
-                aguardando <= '0';
-            when descendo =>
-                subida <= '0';
-                descida <= '1';
-                aguardando <= '0';
-        end case;
-    end process;
+    leds <= std_logic_vector(accumulator);
 
-    -- Determinar o próximo estado
-    process(estado, a_interno, db_a_desejado)
-    begin
-        case estado is
-            when parado =>
-                if a_interno = db_a_desejado then
-                    prox_estado <= parado;
-                elsif a_interno < db_a_desejado then
-                    prox_estado <= subindo;
-                elsif a_interno > db_a_desejado then
-                    prox_estado <= descendo;
-                end if;
-            when subindo =>
-                if a_interno >= db_a_desejado then
-                    prox_estado <= parado;
-                else
-                    prox_estado <= subindo;
-                end if;
-            when descendo =>
-                if a_interno <= db_a_desejado then
-                    prox_estado <= parado;
-                else
-                    prox_estado <= descendo;
-                end if;
-        end case;
-    end process;
+end behavior;
 
-    -- Atribuir a_interno à saída
-    a_atual <= a_interno;
-
-end Elevator;
 ```
 #### 2.1.4 Circuito esquemático:
 
